@@ -1,2 +1,19 @@
-<h1>StaticPages#about</h1>
-<p>Find me in app/views/static_pages/about.html.erb</p>
+
+<% provide(:title, "About Our Helping Strategy") %>
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title><%= yield(:title) %>  | Friends Corner Sample App</title>
+  </head>
+  <body>
+    <h1>About</h1>
+    <img src='http://www.soglutheran.org/HelpingHands.jpg' alt="friends Logo" width="128" height="128">
+    <p>
+      The <a http://www.helpinghandshomecare.co.uk/about-us/><em> Helping Hands</em></a> 
+     
+      
+    </p>
+  </body>
+</html>

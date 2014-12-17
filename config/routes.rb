@@ -1,16 +1,25 @@
 Rails.application.routes.draw do
-  get 'static_pages/about'
 
-  get 'static_pages/home'
+  get 'pages/info'
 
-  get 'static_pages/help'
+  resources :ideas
 
+  resources :comments
+  root :to => redirect('/ideas')
+  #root             'static_pages#home'
+  get 'help'    => 'static_pages#help'
+  get 'about'   => 'static_pages#about'
+  get 'contact' => 'static_pages#contact'
+  # get new_user_session => 'sessions#new'
+  # get user_session => 'sessions#create'
+  # get destroy_user_session => 'sessions#destroy' 
+  
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
+  #root 'home#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

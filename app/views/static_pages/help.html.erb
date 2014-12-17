@@ -1,2 +1,22 @@
-<h1>StaticPages#help</h1>
-<p>Find me in app/views/static_pages/help.html.erb</p>
+
+<% provide(:title, "Helping Hands") %>
+
+
+<html>
+<head>
+
+    <title><%= yield(:title) %>  | Helping Hands</title>
+  </head>
+  <body>
+    <h1>Help</h1>
+    <img src='http://www.soglutheran.org/HelpingHands.jpg' alt="friends Logo" width="128" height="128">
+    <p>
+      Click Here If WAnt to Help SomeOne...
+      <a href="http://www.railstutorial.org/#help">Want to help
+      </a>.
+     Click Here If You Need Any Type of Help
+      <a href="http://www.railstutorial.org/book"><em>Need Help
+      </em></a>.
+    </p>
+  </body>
+</html>

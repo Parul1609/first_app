@@ -8,7 +8,8 @@ gem 'jquery-rails', '4.0.0.beta2'
 gem 'turbolinks',   '2.3.0'
 gem 'jbuilder',     '2.2.3'
 gem 'minitest', '~> 5.5.0'
-gem 'bcrypt',               '3.1.7',
+gem 'bcrypt',               '3.1.7'
+gem 'gravtastic',
 #gem 'sdoc', '~> 0.4.0', 
 group: :doc
 
@@ -28,3 +29,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 gem 'devise', git: 'https://github.com/plataformatec/devise.git', :branch => 'lm-rails-4-2'
 gem 'bootstrap-sass',       '3.2.0.0'
+gem 'carrierwave'
