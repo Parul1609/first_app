@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get 'users/index'
   get 'pages/info'
   get 'users/show'
+
+  #get 'users/home'
   resources :ideas
 
   resources :comments
@@ -15,6 +17,7 @@ Rails.application.routes.draw do
   get 'about'   => 'static_pages#about'
   get 'contact' => 'static_pages#contact'
   get 'users' => 'users_path#users '
+get 'ideas' =>  'ideas#index'
 
   # get new_user_session => 'sessions#new'
   # get user_session => 'sessions#create'
