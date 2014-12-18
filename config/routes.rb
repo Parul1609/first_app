@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
-  get 'pages/info'
+  resources :products
 
+  get 'users/new'
+  get 'users/index'
+  get 'pages/info'
+  get 'users/show'
   resources :ideas
 
   resources :comments
@@ -10,6 +14,8 @@ Rails.application.routes.draw do
   get 'help'    => 'static_pages#help'
   get 'about'   => 'static_pages#about'
   get 'contact' => 'static_pages#contact'
+  get 'users' => 'users_path#users '
+
   # get new_user_session => 'sessions#new'
   # get user_session => 'sessions#create'
   # get destroy_user_session => 'sessions#destroy' 

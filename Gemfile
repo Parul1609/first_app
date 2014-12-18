@@ -30,3 +30,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 gem 'devise', git: 'https://github.com/plataformatec/devise.git', :branch => 'lm-rails-4-2'
 gem 'bootstrap-sass',       '3.2.0.0'
 gem 'carrierwave'
+gem 'kaminari'

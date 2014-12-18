@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 	#include Gravtastic
 	#	gravtastic
+	 paginates_per 5
 end
