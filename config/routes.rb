@@ -15,10 +15,11 @@ Rails.application.routes.draw do
   #root             'static_pages#home'
   get 'help'    => 'static_pages#help'
   get 'about'   => 'static_pages#about'
+  get 'home'    => 'static_pages#home'
   get 'contact' => 'static_pages#contact'
   get 'users' => 'users_path#users '
-get 'ideas' =>  'ideas#index'
-
+  get 'ideas' =>  'ideas#index'
+  #resources :microposts,          only: [:create, :destroy]
   # get new_user_session => 'sessions#new'
   # get user_session => 'sessions#create'
   # get destroy_user_session => 'sessions#destroy' 

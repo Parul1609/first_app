@@ -1,5 +1,5 @@
 class IdeasController < ApplicationController
-  before_action :set_idea, only: [:show, :edit, :update, :destroy]
+  before_action :set_idea, only: [:edit, :update, :destroy]
 
   respond_to :html
 
@@ -39,8 +39,8 @@ class IdeasController < ApplicationController
   private
     def set_idea
       @idea = Idea.find(params[:id])
-      @comments = @idea.comments.all
-      @comment = @idea.comments.build
+      @commens = @idea.commens.all
+      @commen = @idea.commens.build
     end
 
     def idea_params

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User name:</strong>
+  <%= @commen.user_name %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @commen.body %>
+</p>
+
+<p>
+  <strong>Idea:</strong>
+  <%= @commen.idea_id %>
+</p>
+
+<%= link_to 'Edit', edit_commen_path(@commen) %> |
+<%= link_to 'Back', commens_path %>

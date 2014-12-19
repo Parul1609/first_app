@@ -31,3 +31,7 @@ gem 'devise', git: 'https://github.com/plataformatec/devise.git', :branch => 'lm
 gem 'bootstrap-sass',       '3.2.0.0'
 gem 'carrierwave'
 gem 'kaminari'
+#gem 'activesupport'
+#gem 'activesupport',  '~> 3.2.17'
+gem 'devise_invitable'
+gem "the_comments"
