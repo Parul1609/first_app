@@ -1,6 +1,6 @@
 class IdeasController < ApplicationController
   before_action :set_idea, only: [:edit, :update, :destroy]
-
+  
   respond_to :html
 
   def index
@@ -18,6 +18,13 @@ class IdeasController < ApplicationController
   end
 
   def edit
+    
+  end
+
+  def post
+    logger.debug "4545545"
+    logger.debug params.inspect
+    @idea = Idea.find_by(id: params[:id])
   end
 
   def create
@@ -39,11 +46,13 @@ class IdeasController < ApplicationController
   private
     def set_idea
       @idea = Idea.find(params[:id])
-      @commens = @idea.commens.all
-      @commen = @idea.commens.build
+      @comments = @idea.comments.all
+      @comment = @idea.comments.build
     end
 
     def idea_params
       params.require(:idea).permit(:name, :description, :picture)
     end
+
+   
 end

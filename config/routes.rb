@@ -6,11 +6,13 @@ Rails.application.routes.draw do
   get 'users/index'
   get 'pages/info'
   get 'users/show'
-
+  get 'ideas/post'
+  get 'ideas/edit'
   #get 'users/home'
-  resources :ideas
-
+  resources :ideas do
   resources :comments
+end
+ 
   root :to => redirect('/ideas')
   #root             'static_pages#home'
   get 'help'    => 'static_pages#help'
@@ -19,6 +21,8 @@ Rails.application.routes.draw do
   get 'contact' => 'static_pages#contact'
   get 'users' => 'users_path#users '
   get 'ideas' =>  'ideas#index'
+  #get 'ideas' =>  'ideas#post'
+  
   #resources :microposts,          only: [:create, :destroy]
   # get new_user_session => 'sessions#new'
   # get user_session => 'sessions#create'

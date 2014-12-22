@@ -1,0 +1,33 @@
+
+<div class="col-md-4">
+  <%= image_tag @idea.picture_url, width: '50%' if @idea.picture.present?%>
+        <h4><%= link_to @idea.name%></h4>
+        
+
+    <div class="field">
+    
+      
+        <% if @idea.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@idea.errors.count, "error") %> prohibited this idea from being saved:</h2>
+           <ul>
+              <% @idea.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+        </div>
+      <% end %>
+
+  <%= form_for @idea, :html => {:multipart => true} do |f| %>
+      <div class="field">
+      <%= f.label :Comments %><br>
+      <%= f.text_field :comments %>
+      </div>
+  
+      <div class="actions">
+         <%= f.submit %>
+      </div>
+    </div>
+  <% end %>
+</div>
+      
