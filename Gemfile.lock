@@ -49,6 +49,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    amistad (0.10.2)
     arel (6.0.0)
     bcrypt (3.1.7)
     bcrypt (3.1.7-x86-mingw32)
@@ -186,6 +187,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  amistad
   bcrypt (= 3.1.7)
   bootstrap-sass (= 3.2.0.0)
   byebug (= 3.4.0)

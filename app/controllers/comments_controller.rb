@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :set_comment, only: [:show, :edit, :update, :destroy, ]
 
   respond_to :html
 
@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
     # @comment.save
     # respond_with(@comment)
    
-    @idea = Idea.find(params[:idea_id])
+    @idea = Idea.find(params[:comment][:idea_id])
     @comment = @idea.comments.create(comment_params)
     if @comment.save
       redirect_to @idea

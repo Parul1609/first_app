@@ -13,16 +13,16 @@ default: &default
 
 development:
   <<: *default
-  database: first_app_parul
+  database: first_app_2_parul
   host: localhost
   username: postgres
   password: root
   port: 5432
 
-test:
-  <<: *default
-  database: first_app_test_parul
-  host: localhost
-  username: postgres
-  password: root
-  port: 5432
+# test:
+#   <<: *default
+#   database: first_app_test_parul
+#   host: localhost
+#   username: postgres
+#   password: root
+#   port: 5432

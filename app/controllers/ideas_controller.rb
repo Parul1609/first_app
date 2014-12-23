@@ -1,5 +1,5 @@
 class IdeasController < ApplicationController
-  before_action :set_idea, only: [:edit, :update, :destroy]
+  before_action :set_idea, only: [:edit, :update, :destroy, :show]
   
   respond_to :html
 
@@ -25,10 +25,11 @@ class IdeasController < ApplicationController
     logger.debug "4545545"
     logger.debug params.inspect
     @idea = Idea.find_by(id: params[:id])
+    
   end
 
   def create
-    @idea = Idea.new(idea_params)
+    @idea = current_user.ideas.new(idea_params)
     @idea.save
     respond_with(@idea)
   end
@@ -51,7 +52,7 @@ class IdeasController < ApplicationController
     end
 
     def idea_params
-      params.require(:idea).permit(:name, :description, :picture)
+      params.require(:idea).permit(:description, :picture)
     end
 
    

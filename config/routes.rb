@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :friendships
+
   resources :products
 
   get 'users/new'
@@ -8,10 +10,10 @@ Rails.application.routes.draw do
   get 'users/show'
   get 'ideas/post'
   get 'ideas/edit'
+
   #get 'users/home'
-  resources :ideas do
+  resources :ideas
   resources :comments
-end
  
   root :to => redirect('/ideas')
   #root             'static_pages#home'
@@ -21,6 +23,12 @@ end
   get 'contact' => 'static_pages#contact'
   get 'users' => 'users_path#users '
   get 'ideas' =>  'ideas#index'
+  get 'ideas' => 'ideas#show'
+  
+  resources :friends, :controller => 'friendships', :except => [:show, :edit] do
+  get "requests", :on => :collection
+  get "invites", :on => :collection
+end
   #get 'ideas' =>  'ideas#post'
   
   #resources :microposts,          only: [:create, :destroy]

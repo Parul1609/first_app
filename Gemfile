@@ -35,4 +35,4 @@ gem 'kaminari'
 #gem 'activesupport',  '~> 3.2.17'
 gem 'devise_invitable'
 gem "the_comments"
-gem 'amistad', git: 'http://github.com/raw1z/amistad.git', :branch => 'lm-rails-4-2'
+gem 'amistad'
