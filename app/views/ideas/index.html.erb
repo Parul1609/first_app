@@ -1,15 +1,38 @@
 <h1>Listing ideas</h1>
 <% @ideas.each do |idea| %>
+
   <div class="media">
+    <h1><%#= current_user.has_liked?(idea) %></h1>
+      <h2> <em><%= idea.user.try(:email) || "No Creator" %></em></h2>
       <%= link_to image_tag(idea.picture.present? ? idea.picture_url : 'default_post_image.jpg'), idea_path(idea), class: 'media-left' %>
-    <br />
-    <%= idea.user.try(:email) || "No Creator" %>
-    <div class="media-body">
-      <%= idea.description %><br>
-    </div>
-  </div>
-  <hr>
+        <br />
+      <%if current_user.has_liked?(idea) %>
+      <%= link_to "UnLike", like_idea_path(id: idea.id) %>
+      <% else %>
+       <%= link_to "Like", like_idea_path(id: idea.id) %>
+      <% end %>
+
+        </div>
+
 <% end %>
+
+
+
+
+
+
+      <!-- 
+          <div class="stats">
+            <a href="<%#= like_idea_path(@idea) %>">
+            <strong id="like" class="stat">
+              <%#= @idea.like.count %>
+            </strong>
+                likes
+            </a>
+          </div> -->
+ 
+
+
 
 <!-- <%# @ideas.in_groups_of(3) do |group| %>
   <div class="row">

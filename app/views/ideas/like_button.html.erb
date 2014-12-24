@@ -1,0 +1,5 @@
+<% unless user_likes_idea?(@idea, current_user) %>
+    <%= button_to 'like', "/likes?idea=#{@idea.id}", :id => 'like_button', :remote => true %>
+<% else %>
+    <%= button_to 'liked', @liked, :class => 'like_button unlike', :id => 'unlike_button', :remote => true, method: :delete %>
+<% end %>

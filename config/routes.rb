@@ -12,8 +12,13 @@ Rails.application.routes.draw do
   get 'ideas/edit'
 
   #get 'users/home'
-  resources :ideas
+  resources :ideas do
+    member do
+      get :like
+    end
+  end
   resources :comments
+ # resources :likes
  
   root :to => redirect('/ideas')
   #root             'static_pages#home'
