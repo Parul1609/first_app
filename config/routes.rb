@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'users/show'
   get 'ideas/post'
   get 'ideas/edit'
-
+  get 'notification/stats'
   #get 'users/home'
   resources :ideas do
     member do
