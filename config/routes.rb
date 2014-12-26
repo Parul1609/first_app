@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
 
-  resources :friendships
-
-  resources :products
+  
+  
 
   get 'users/new'
   get 'users/index'
@@ -17,7 +16,13 @@ Rails.application.routes.draw do
       get :like
     end
   end
+  resources :users do
+    member do
+      get :friend
+    end
+  end
   resources :comments
+  # resources :friends_users, only: [:create, :destroy]
  # resources :likes
  
   root :to => redirect('/ideas')
@@ -30,10 +35,7 @@ Rails.application.routes.draw do
   get 'ideas' =>  'ideas#index'
   get 'ideas' => 'ideas#show'
   
-  resources :friends, :controller => 'friendships', :except => [:show, :edit] do
-  get "requests", :on => :collection
-  get "invites", :on => :collection
-end
+
   #get 'ideas' =>  'ideas#post'
   
   #resources :microposts,          only: [:create, :destroy]

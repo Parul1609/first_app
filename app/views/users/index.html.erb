@@ -3,17 +3,17 @@
 
 <ul class="users">
   <% @users.each do |user| %>
-  <% unless user== current_user%>
+  <% unless user == current_user%>
     <li>
-      	<%= link_to user.email, users_show_path(user.id) %>
-     
-      		<%=link_to submit_tag('+')%>
-
-     <ul>
-   
- 
+      <%= link_to user.email, users_show_path(user.id) %>
     </li>
+    <% if current_user.has_friend?(user) %>
+	  		<%= link_to "UnFriend", "#" %>
+	  <% else %>
+	  		<%= link_to "Friend Request Send", friend_user_path(user.id)  %>
+       
+	  <% end %>
   <% end %>
-  <%end%>
+  <% end %>
 </ul>
 <%= paginate @users %>

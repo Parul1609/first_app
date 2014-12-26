@@ -4,7 +4,11 @@ class User < ActiveRecord::Base
   has_many :likes
   # has_many :friends, foreign_key: "friend_id", class_name: "Comment"
 
-  has_many :friends_users
+  has_many :friend, :through => :friendsusers
+  
+   belongs_to :friendsuser
+  
+
   # has_many :friends, :through => :friends_user
 
       #  has_many :microposts, dependent: :destroy
@@ -22,8 +26,21 @@ class User < ActiveRecord::Base
   def has_liked? idea
     Like.where(idea_id: idea.id, user_id: self.id).first
   end
-# has_many :friends, :through => :friends_users, :conditions => "status = 'accepted'"
-# has_many :requested_friends, :through => :friends_users, :source => :friend, :conditions => "status = 'requested'", :order => :created_at
-# has_many :pending_friends, :through => :friends_users, :source => :friend, :conditions => "status = 'pending'", :order => :created_at
-# has_many :friends_users, :dependent => :destroy
+
+ # def friend(other_user)
+ #    active_friends_users.create(friend_id: other_user.id)
+ #  end
+
+ #  # Unfriend a user.
+ #  def unfriend(other_user)
+ #    active_friends_users.find_by(friend_id: other_user.id).destroy
+ #  end
+
+  # Returns true if the current user is friend the other user.
+  def has_friend? user
+    FriendsUser.where(user_id: user.id, friend_id: self.id).first
+  end
+  # def has_request? current_user
+  #   FriendsUser.where(user_id: user.id, friend_id: self.id).first
+  # end
 end
