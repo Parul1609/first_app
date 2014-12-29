@@ -29,12 +29,13 @@ class UsersController < ApplicationController
   
   def friend
       @user = User.find(params[:id])
+
       if current_user.has_friend?(@user) 
       friendsuser = FriendsUser.where(user_id: current_user.id, friend_id: @user.id).first
       friendsuser.destroy
       flash[:notice] = "Remove friend"
+      
       else
-
         friendsuser = FriendsUser.new(user_id: current_user.id, friend_id: @user.id)
 
         if friendsuser.save

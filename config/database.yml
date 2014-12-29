@@ -13,7 +13,7 @@ default: &default
 
 development:
   <<: *default
-  database: first_app_2_parul
+  database: first_app_3_parul
   host: localhost
   username: postgres
   password: root

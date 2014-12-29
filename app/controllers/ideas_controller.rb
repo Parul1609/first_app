@@ -31,7 +31,8 @@ class IdeasController < ApplicationController
   end
 
   def create
-    @idea = current_user.ideas.new(idea_params)
+    @idea = Idea.new(idea_params)
+    @idea.user_id = current_user.id
     @idea.save
     respond_with(@idea)
   end

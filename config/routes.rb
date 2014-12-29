@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
 
   
   
@@ -43,7 +44,6 @@ Rails.application.routes.draw do
   # get user_session => 'sessions#create'
   # get destroy_user_session => 'sessions#destroy' 
   
-  devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
