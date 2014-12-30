@@ -1,17 +1,26 @@
 <% provide(:title, 'All users') %>
 <h1>All users</h1>
 
+
 <ul class="users">
   <% @users.each do |user| %>
   <% unless user == current_user%>
+    <h1><%#= current_user.has_pending_request?(user) %></h1>
     <li>
       <%= link_to user.email, users_show_path(user.id) %>
     </li>
+
     <% if current_user.has_friend?(user) %>
-	  		<%= link_to "UnFriend", "#" %>
-	  <% else %>
-	  		<%= link_to "Friend Request Send", friend_user_path(user.id)  %>
-       
+	      <%= link_to "Remove Friend", friend_user_path(user.id) %>
+    <%# elsif current_user.has_pending_request?(user) %>   
+    <% elsif current_user.has_friend_request_reject?(user)  %>
+        <%= link_to "Friend Request Send", friend_user_path(user.id)  %>
+    <% else %>
+      <% if current_user.has_requested? user %>
+        pending
+      <% else %>
+       <%= link_to "Friend Request Send", friend_user_path(user.id)  %>
+      <% end %>
 	  <% end %>
   <% end %>
   <% end %>

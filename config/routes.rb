@@ -19,9 +19,9 @@ Rails.application.routes.draw do
     end
   end
   resources :notification do
-    member do 
-      put :friend_request_accept
-      delete :friend_request_reject
+    collection do 
+      get :friend_request_accept
+      get :friend_request_reject
     end
   end
   resources :comments

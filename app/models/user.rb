@@ -37,10 +37,21 @@ class User < ActiveRecord::Base
  #  end
 
   # Returns true if the current user is friend the other user.
-  def has_friend? user
-    FriendsUser.where(user_id: self.id, friend_id: user.id).first
+  def has_requested? user
+   FriendsUser.where(user_id: self.id, friend_id: user.id).first
   end
   def has_request? user
     FriendsUser.where(friend_id: self.id)
+  end
+  def has_friend? user
+    FriendsUser.where(user_id: self.id, friend_id: user.id, accepted: true).first
+  end
+  
+   def has_friend_exist? user
+    FriendsUser.where(user_id: self.id, friend_id: user.id).first
+  end
+
+  def has_friend_request_reject? user
+    FriendsUser.where(user_id: self.id, friend_id: user.id, accepted: false).first
   end
 end
