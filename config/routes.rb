@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-
-  
-  
-
   get 'users/new'
   get 'users/index'
   get 'pages/info'
@@ -20,6 +16,12 @@ Rails.application.routes.draw do
   resources :users do
     member do
       get :friend
+    end
+  end
+  resources :notification do
+    member do 
+      put :friend_request_accept
+      delete :friend_request_reject
     end
   end
   resources :comments

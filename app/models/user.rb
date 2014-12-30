@@ -40,7 +40,7 @@ class User < ActiveRecord::Base
   def has_friend? user
     FriendsUser.where(user_id: self.id, friend_id: user.id).first
   end
-  # def has_request? current_user
-  #   FriendsUser.where(user_id: user.id, friend_id: self.id).first
-  # end
+  def has_request? user
+    FriendsUser.where(friend_id: self.id)
+  end
 end

@@ -36,18 +36,14 @@ class UsersController < ApplicationController
       flash[:notice] = "Remove friend"
       
       else
-        friendsuser = FriendsUser.new(user_id: current_user.id, friend_id: @user.id)
+        friendsuser = FriendsUser.new(user_id: current_user.id, friend_id: @user.id, accepted: false)
 
         if friendsuser.save
           flash[:notice] = "Request Send"
         else
           flash[:alert] = "Unsuccesful"
         end
-        #  @friendsuser = current_user.friendsuser.build(friend_id: friend.id)
-        # if @friendsuser.save
-        #   flash[:notice] = "Added friend."
-        #  end 
-              
+       
      end
      redirect_to users_show_path
   end

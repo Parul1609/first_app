@@ -19,10 +19,10 @@ development:
   password: root
   port: 5432
 
-# test:
-#   <<: *default
-#   database: first_app_test_parul
-#   host: localhost
-#   username: postgres
-#   password: root
-#   port: 5432
+production:
+  <<: *default
+  database: first_app_3_parul
+  host: localhost
+  username: postgres
+  password: root
+  port: 5432

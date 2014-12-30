@@ -1,1 +1,12 @@
 Here We Show The List Of Notifications
+<ul class="users">
+<% @invitations.each do |noti| %>
+	<%= noti.inspect %><hr>
+	<% if noti.accepted  %>
+		<%= link_to "Destroy Request", friend_request_reject_notification_path(accept: false) %>
+	<% else %>
+		<%= link_to "Accept Request", friend_request_accept_notification_path(accept: true) %>
+	<% end %>
+	
+<% end %>
+</ul>	
