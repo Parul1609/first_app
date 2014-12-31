@@ -1,21 +1,26 @@
 <h1>Listing ideas</h1>
 <% @ideas.each do |idea| %>
 
-  <div class="media">
-    <h1><%#= current_user.has_liked?(idea) %></h1>
+  <div class="row">
+    <div class="col-md-3 col-lg-6 col-sm-3 col-xs-12">
       <h2> <em><%= idea.user.try(:email) || "No Creator" %></em></h2>
-      <%= link_to image_tag(idea.picture.present? ? idea.picture_url : 'default_post_image.jpg'), idea_path(idea), class: 'media-left' %>
-        <br />
+    </div>
+    <div class="col-md-3">
+      <%= link_to image_tag(idea.picture.present? ? idea.picture_url : 'default_post_image.jpg'), idea_path(idea), class: '' %>
+    </div>
+    <div class="col-md-3">
       <%if current_user.has_liked?(idea) %>
-      <%= link_to "UnLike", like_idea_path(id: idea.id) %>
+        <!-- <a class="btn btn-default" href="like_idea_path(id: idea.id)" role="button" class="btn btn-primary">UnLike</a> -->
+        <%= link_to "UnLike", like_idea_path(id: idea.id), class: "btn btn-primary" %>
       <% else %>
-       <%= link_to "Like", like_idea_path(id: idea.id) %>
+        <!-- <a class="btn btn-default" href="like_idea_path(id: idea.id)" role="button" class="btn btn-primary">Like</a> -->
+        <%= link_to "Like", like_idea_path(id: idea.id), class: "btn btn-primary"  %>
       <% end %>
-
-        </div>
+    </div>
+  </div>
+  <hr>
 
 <% end %>
-
 
 
 
