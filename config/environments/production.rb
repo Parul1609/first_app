@@ -1,6 +1,13 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+# <head>
+#   <title>a Social Server</title>
+#   <link data-turbolinks-track="true" href="/stylesheets/application.css" media="all" rel="stylesheet">
+#   <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+#   <script data-turbolinks-track="true" src="/javascripts/application.js"></script>
+#   <meta content="authenticity_token" name="csrf-param">
+# <meta content="jYM4IAXTXAuKWeD4FEVrXgXRNFeB6EazU68ZBQfRqNY=" name="csrf-token">
+# </head>
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -22,7 +29,6 @@ Rails.application.configure do
 
   # Disable Rails's static asset server (Apache or NGINX will already do this).
   config.serve_static_assets = false
-
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
