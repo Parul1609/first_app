@@ -8,6 +8,7 @@ Rails.application.configure do
 #   <meta content="authenticity_token" name="csrf-param">
 # <meta content="jYM4IAXTXAuKWeD4FEVrXgXRNFeB6EazU68ZBQfRqNY=" name="csrf-token">
 # </head>
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
